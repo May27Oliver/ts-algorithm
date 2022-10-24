@@ -1,6 +1,5 @@
 import mergeSort from "../mergeSort";
 import HeapSort from "../heapSort";
-
 describe("sort", () => {
   test("mergeSort", () => {
     const x = [4, 7, 1, 2, 5, 3, 8, 10, 33, 6, 77, 100, 101];
