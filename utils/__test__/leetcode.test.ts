@@ -1,5 +1,6 @@
 import twoSum from "../twoSum";
 import palindrome from "../palindromeNumber";
+import romanToInteger from "../romanToInteger";
 
 describe("leetcode test", () => {
   test("twoSum test1", () => {
@@ -21,7 +22,19 @@ describe("leetcode test", () => {
     expect(palindrome(121)).toBeTruthy();
   });
 
-  //   test("palindrom test2", () => {
-  //     expect(palindrome(10)).toBeFalsy();
-  //   });
+  test("palindrom test2", () => {
+    expect(palindrome(10)).toBeFalsy();
+  });
+
+  test("romanToInteger test1", () => {
+    expect(romanToInteger("LVIII")).toBe(58);
+  });
+
+  test("romanToInteger test2", () => {
+    expect(romanToInteger("III")).toBe(3);
+  });
+
+  test("romanToInteger test3", () => {
+    expect(romanToInteger("MCMXCIV")).toBe(1994);
+  });
 });
