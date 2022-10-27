@@ -1,6 +1,6 @@
 export default function solution(s: string): number {
   //羅馬數字讀法是由左到右，左邊大於右邊相加，左邊小於右邊，則得相減
-  //由右向左檢查，若右大於左相減，若左大於又相加
+  //由右向左檢查，若右大於左相減，若左大於右相加
   const counter: { [s: string]: number } = {
     z: 0,
     I: 1,

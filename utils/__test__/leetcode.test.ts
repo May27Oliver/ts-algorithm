@@ -1,6 +1,7 @@
 import twoSum from "../twoSum";
 import palindrome from "../palindromeNumber";
 import romanToInteger from "../romanToInteger";
+import longestCommonPrefix from "../longestCommonPrefix";
 
 describe("leetcode test", () => {
   test("twoSum test1", () => {
@@ -36,5 +37,15 @@ describe("leetcode test", () => {
 
   test("romanToInteger test3", () => {
     expect(romanToInteger("MCMXCIV")).toBe(1994);
+  });
+
+  test("Longest Common Prefix test1", () => {
+    const strs = ["flower", "flow", "flight"];
+    expect(longestCommonPrefix(strs)).toBe("fl");
+  });
+
+  test("Longest Common Prefix test2", () => {
+    const strs = ["dog", "racecar", "car"];
+    expect(longestCommonPrefix(strs)).toBe("");
   });
 });
