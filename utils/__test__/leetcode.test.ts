@@ -2,6 +2,7 @@ import twoSum from "../twoSum";
 import palindrome from "../palindromeNumber";
 import romanToInteger from "../romanToInteger";
 import longestCommonPrefix from "../longestCommonPrefix";
+import validParentheses from "../validParentheses";
 
 describe("leetcode test", () => {
   test("twoSum test1", () => {
@@ -47,5 +48,20 @@ describe("leetcode test", () => {
   test("Longest Common Prefix test2", () => {
     const strs = ["dog", "racecar", "car"];
     expect(longestCommonPrefix(strs)).toBe("");
+  });
+
+  test("Valid Parentheses test1", () => {
+    const s = "()";
+    expect(validParentheses(s)).toBeTruthy();
+  });
+
+  test("Valid Parentheses test2", () => {
+    const s = "()[]{}";
+    expect(validParentheses(s)).toBeTruthy();
+  });
+
+  test("Valid Parentheses test3", () => {
+    const s = "(]";
+    expect(validParentheses(s)).toBeFalsy();
   });
 });
