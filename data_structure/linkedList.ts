@@ -92,3 +92,5 @@ class LinkedList<T> implements ILinkedList<T> {
     }
   }
 }
+
+export default new LinkedList();
