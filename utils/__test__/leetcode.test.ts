@@ -3,6 +3,8 @@ import palindrome from "../palindromeNumber";
 import romanToInteger from "../romanToInteger";
 import longestCommonPrefix from "../longestCommonPrefix";
 import validParentheses from "../validParentheses";
+import mergeTwoLists from "../mergeTwoSortedLists";
+import linkedList from "../../data_structure/linkedList";
 
 describe("leetcode test", () => {
   test("twoSum test1", () => {
@@ -63,5 +65,19 @@ describe("leetcode test", () => {
   test("Valid Parentheses test3", () => {
     const s = "(]";
     expect(validParentheses(s)).toBeFalsy();
+  });
+
+  const list1: number[] = [1, 2, 4],
+    list2: number[] = [1, 3, 4],
+    linkedList1 = new linkedList<number>(),
+    linkedList2 = new linkedList<number>();
+
+  list1.forEach((data) => linkedList1.append(data));
+  list2.forEach((data) => linkedList2.append(data));
+  const testList = mergeTwoLists(linkedList1, linkedList2);
+
+  test("mergeTwoSortedList", () => {
+    expect(testList?.data).toBe(1);
+    expect(testList?.next?.data).toBe(1);
   });
 });

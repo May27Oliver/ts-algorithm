@@ -1,4 +1,4 @@
-class LinkedNode<T> {
+export class LinkedNode<T> {
   data: T;
   next: LinkedNode<T> | null = null;
   constructor(data: T) {
@@ -6,7 +6,7 @@ class LinkedNode<T> {
   }
 }
 
-interface ILinkedList<T> {
+export interface ILinkedList<T> {
   preppend(data: T): void; //在linkedlist最前面插入元素
   append(data: T): void; //在linkedlist最後面插入元素
   deleteNode(data: T): void; //刪除Linkedlist中的某值
@@ -24,7 +24,7 @@ class LinkedList<T> implements ILinkedList<T> {
     if (!this.head) {
       this.head = new LinkedNode(data);
       this.size = 1;
-      return this.head;
+      return;
     }
     let temp = this.head;
     this.head = new LinkedNode(data);
@@ -80,7 +80,9 @@ class LinkedList<T> implements ILinkedList<T> {
     return -1;
   }
   insert(data: T, pos: number) {
-    if (this.size === 0 || !this.head) {
+    //如果串列還未有任何元素，直接加到最前面
+    if (this.size === 0 || !this.head || this.size < pos) {
+      this.append(data);
       return;
     }
     let current = this.head;
@@ -114,4 +116,4 @@ class LinkedList<T> implements ILinkedList<T> {
   }
 }
 
-export default new LinkedList();
+export default LinkedList;
