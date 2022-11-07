@@ -75,7 +75,7 @@ describe("leetcode test", () => {
   list1.forEach((data) => linkedList1.append(data));
   list2.forEach((data) => linkedList2.append(data));
   const testList = mergeTwoLists(linkedList1, linkedList2);
-
+  //[1,1,2,3,4,4]
   test("mergeTwoSortedList", () => {
     expect(testList?.data).toBe(1);
     expect(testList?.next?.data).toBe(1);
