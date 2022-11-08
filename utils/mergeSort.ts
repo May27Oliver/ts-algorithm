@@ -9,7 +9,7 @@ export default function mergeSort(arr: number[]): number[] {
   return merge(arrLeft, arrRight);
 }
 
-const merge = (left: number[], right: number[]): number[] => {
+export const merge = (left: number[], right: number[]): number[] => {
   let finalArr: number[] = [];
   let i = 0,
     j = 0;

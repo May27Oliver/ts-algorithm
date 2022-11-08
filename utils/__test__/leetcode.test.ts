@@ -5,6 +5,8 @@ import longestCommonPrefix from "../longestCommonPrefix";
 import validParentheses from "../validParentheses";
 import mergeTwoLists from "../mergeTwoSortedLists";
 import linkedList from "../../data_structure/linkedList";
+import lengthOfLastWord from "../LengthOfLastWord";
+import SearchInsertPosition from "../SearchInsertPosition";
 
 describe("leetcode test", () => {
   test("twoSum test1", () => {
@@ -76,8 +78,39 @@ describe("leetcode test", () => {
   list2.forEach((data) => linkedList2.append(data));
   const testList = mergeTwoLists(linkedList1, linkedList2);
   //[1,1,2,3,4,4]
-  test("mergeTwoSortedList", () => {
+  test("mergeTwoSortedList1", () => {
     expect(testList?.data).toBe(1);
     expect(testList?.next?.data).toBe(1);
   });
+  const list3: number[] = [],
+    list4: number[] = [0],
+    linkedList3 = new linkedList<number>(),
+    linkedList4 = new linkedList<number>();
+  list3.forEach((data) => linkedList3.append(data));
+  list4.forEach((data) => linkedList4.append(data));
+  const testList2 = mergeTwoLists(linkedList3, linkedList4);
+
+  test("mergeTwoSortedList2", () => {
+    expect(testList2?.data).toBe(0);
+    expect(testList2?.next?.data).toBe(undefined);
+  });
+
+  //leetcode 58
+  test("length of last word test1", () => {
+    const s = "luffy is still joyboy";
+    expect(lengthOfLastWord(s)).toBe(6);
+  });
+
+  test("length of last word test2", () => {
+    const s = "   fly me   to   the moon";
+    expect(lengthOfLastWord(s)).toBe(4);
+  });
+
+  test("length of last word test3", () => {
+    const s = "Hello World";
+    expect(lengthOfLastWord(s)).toBe(5);
+  });
+
+  //leetcode 35
+  // test("search insert position", () => {});
 });

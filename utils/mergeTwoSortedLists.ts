@@ -2,7 +2,7 @@ import linkedlist, {
   ILinkedList,
   LinkedNode,
 } from "../data_structure/linkedList";
-import mergeSort from "./mergeSort";
+import { merge } from "./mergeSort";
 
 //思路：merge sort divid and conquer
 export default function mergeTwoLists(
@@ -11,7 +11,8 @@ export default function mergeTwoLists(
 ): LinkedNode<number> | null {
   let arr1 = list1 ? list1.traverse() : [];
   let arr2 = list2 ? list2.traverse() : [];
-  let finalArr = mergeSort(arr1.concat(arr2));
+  //因為是合併兩個已sorted的list，是故無需divid
+  let finalArr = merge(arr1, arr2);
   let finalList = new linkedlist<number>();
   finalArr.forEach((val) => finalList.append(val));
   return finalList.head;
