@@ -111,6 +111,12 @@ describe("leetcode test", () => {
     expect(lengthOfLastWord(s)).toBe(5);
   });
 
-  //leetcode 35
-  // test("search insert position", () => {});
+  // leetcode 35
+  // Input: nums = [1,3,5,6], target = 5
+  // Output: 2
+  test("search insert position", () => {
+    const nums: number[] = [1, 3, 5, 6];
+    const target: number = 5;
+    expect(SearchInsertPosition(nums, target)).toBe(2);
+  });
 });
