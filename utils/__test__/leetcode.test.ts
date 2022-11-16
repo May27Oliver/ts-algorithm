@@ -7,6 +7,7 @@ import mergeTwoLists from "../mergeTwoSortedLists";
 import linkedList from "../../data_structure/linkedList";
 import lengthOfLastWord from "../LengthOfLastWord";
 import SearchInsertPosition from "../SearchInsertPosition";
+import PlustOne from "../PlusOne";
 
 describe("leetcode test", () => {
   test("twoSum test1", () => {
@@ -118,5 +119,41 @@ describe("leetcode test", () => {
     const nums: number[] = [1, 3, 5, 6];
     const target: number = 5;
     expect(SearchInsertPosition(nums, target)).toBe(2);
+  });
+
+  /*
+    leetcode 66
+    Input: digits = [1,2,3]
+    Output: [1,2,4]
+  */
+  test("Plus One 1", () => {
+    const digits = [1, 2, 3];
+    expect(PlustOne(digits)).toEqual([1, 2, 4]);
+  });
+  /*
+    Input: digits = [4,3,2,1]
+    Output: [4,3,2,2]
+  */
+  test("Plus One 2", () => {
+    const digits = [4, 3, 2, 1];
+    expect(PlustOne(digits)).toEqual([4, 3, 2, 2]);
+  });
+  /*
+    Input: digits = [9]
+    Output: [1,0]
+  */
+  test("Plus One 3", () => {
+    const digits = [9];
+    expect(PlustOne(digits)).toEqual([1, 0]);
+  });
+  /*
+    Input: digits = [6,1,4,5,3,9,0,1,9,5,1,8,6,7,0,5,5,4,3]
+    Output: [6,1,4,5,3,9,0,1,9,5,1,8,6,7,0,5,5,4,4]
+  */
+  test("Plus One 4", () => {
+    const digits = [6, 1, 4, 5, 3, 9, 0, 1, 9, 5, 1, 8, 6, 7, 0, 5, 5, 4, 3];
+    expect(PlustOne(digits)).toEqual([
+      6, 1, 4, 5, 3, 9, 0, 1, 9, 5, 1, 8, 6, 7, 0, 5, 5, 4, 4,
+    ]);
   });
 });
