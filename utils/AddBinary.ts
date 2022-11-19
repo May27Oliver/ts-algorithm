@@ -10,51 +10,77 @@ Increment the large integer by one and return the resulting array of digits.
 reference:
 https://skyyen999.gitbooks.io/-leetcode-with-javascript/content/questions/67md.html
 */
+//Better one
 export default function addBinary(a: string, b: string): string {
-  let longStr: string,
-    shortStr: string,
-    sumString: string = "",
-    shortChar = 0,
-    longChar = 0,
-    i = 0,
-    carry = 0;
-
-  if (a.length > b.length) {
-    longStr = a;
-    shortStr = b;
-  } else {
-    longStr = b;
-    shortStr = a;
-  }
-  let shortLen = shortStr.length,
-    longLen = longStr.length;
-
-  //對齊兩個字串
-  longStr = longStr.split("").reverse().join("");
-  shortStr = shortStr.split("").reverse().join("");
+  let sumString: string = "",
+    carry = 0, //進位
+    i = a.length - 1, //a pointer
+    j = b.length - 1; //b pointer
 
   //處理長短字串與carry相加
-  while (i < longStr.length || carry != 0) {
-    if (i < shortLen) {
-      shortChar = parseInt(shortStr.charAt(i));
-    } else {
-      shortChar = 0;
+  while (j >= 0 || i >= 0 || carry != 0) {
+    if (i >= 0) {
+      carry += parseInt(a.charAt(i));
+      i--;
     }
-    if (i < longLen) {
-      longChar = parseInt(longStr.charAt(i));
-    } else {
-      longChar = 0;
+    if (j >= 0) {
+      carry += parseInt(b.charAt(j));
+      j--;
     }
-    let num = shortChar + longChar + carry;
-    if (num > 1) {
-      //大於一就進位
-      carry = 1;
-      num = num % 2;
-    } else {
-      carry = 0;
-    }
-    sumString = num.toString() + sumString;
-    i++;
+    sumString = (carry % 2).toString() + sumString;
+    carry > 1 ? (carry = 1) : (carry = 0);
   }
   return sumString;
 }
+
+// first method
+// export default function addBinary(a: string, b: string): string {
+//   let longStr: string,
+//     shortStr: string,
+//     sumString: string = "";
+
+//   if (a.length > b.length) {
+//     longStr = a;
+//     shortStr = b;
+//   } else {
+//     longStr = b;
+//     shortStr = a;
+//   }
+//   let carry = 0;
+
+//   //對齊兩個字串
+//   longStr = longStr.split("").reverse().join("");
+//   shortStr = shortStr.split("").reverse().join("");
+
+//   //處理長短字串相加
+//   for (let i = 0; i < shortStr.length; i++) {
+//     let num =
+//       parseInt(shortStr.charAt(i)) + parseInt(longStr.charAt(i)) + carry;
+//     if (num > 1) {
+//       //大於一就進位
+//       carry = 1;
+//       num = num % 2;
+//     } else {
+//       carry = 0;
+//     }
+//     sumString = num.toString() + sumString;
+//   }
+
+//   //處理餘下的長字串進位
+//   for (let j = shortStr.length; j < longStr.length; j++) {
+//     let num = parseInt(longStr.charAt(j)) + carry;
+//     if (num > 1) {
+//       carry = 1;
+//       num = num % 2;
+//     } else {
+//       carry = 0;
+//     }
+//     sumString = num.toString() + sumString;
+//   }
+//   //如果最後carry還有數字，就放到字串最前面
+//   if (carry === 1) {
+//     return "1" + sumString;
+//   } else {
+//     return sumString;
+//   }
+// }
