@@ -79,6 +79,7 @@ describe("leetcode test", () => {
   list1.forEach((data) => linkedList1.append(data));
   list2.forEach((data) => linkedList2.append(data));
   const testList = mergeTwoLists(linkedList1, linkedList2);
+
   //[1,1,2,3,4,4]
   test("mergeTwoSortedList1", () => {
     expect(testList?.data).toBe(1);
@@ -131,6 +132,7 @@ describe("leetcode test", () => {
     const digits = [1, 2, 3];
     expect(PlustOne(digits)).toEqual([1, 2, 4]);
   });
+
   /*
     Input: digits = [4,3,2,1]
     Output: [4,3,2,2]
@@ -139,6 +141,7 @@ describe("leetcode test", () => {
     const digits = [4, 3, 2, 1];
     expect(PlustOne(digits)).toEqual([4, 3, 2, 2]);
   });
+
   /*
     Input: digits = [9]
     Output: [1,0]
@@ -147,6 +150,7 @@ describe("leetcode test", () => {
     const digits = [9];
     expect(PlustOne(digits)).toEqual([1, 0]);
   });
+
   /*
     Input: digits = [6,1,4,5,3,9,0,1,9,5,1,8,6,7,0,5,5,4,3]
     Output: [6,1,4,5,3,9,0,1,9,5,1,8,6,7,0,5,5,4,4]
@@ -157,6 +161,7 @@ describe("leetcode test", () => {
       6, 1, 4, 5, 3, 9, 0, 1, 9, 5, 1, 8, 6, 7, 0, 5, 5, 4, 4,
     ]);
   });
+
   /*
     Input: a = "11", b = "1"
     Output: "100"
@@ -166,6 +171,7 @@ describe("leetcode test", () => {
       b = "1";
     expect(AddBinary(a, b)).toBe("100");
   });
+
   /*
     Input: a = "1010", b = "1011"
     Output: "10101"
@@ -175,6 +181,7 @@ describe("leetcode test", () => {
       b = "1011";
     expect(AddBinary(a, b)).toBe("10101");
   });
+
   test("Add Binary 3", () => {
     const a =
         "10100000100100110110010000010101111011011001101110111111111101000000101111001110001111100001101",

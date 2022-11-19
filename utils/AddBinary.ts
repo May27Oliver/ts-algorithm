@@ -13,7 +13,11 @@ https://skyyen999.gitbooks.io/-leetcode-with-javascript/content/questions/67md.h
 export default function addBinary(a: string, b: string): string {
   let longStr: string,
     shortStr: string,
-    sumString: string = "";
+    sumString: string = "",
+    shortChar = 0,
+    longChar = 0,
+    i = 0,
+    carry = 0;
 
   if (a.length > b.length) {
     longStr = a;
@@ -22,16 +26,26 @@ export default function addBinary(a: string, b: string): string {
     longStr = b;
     shortStr = a;
   }
-  let carry = 0;
+  let shortLen = shortStr.length,
+    longLen = longStr.length;
 
   //對齊兩個字串
   longStr = longStr.split("").reverse().join("");
   shortStr = shortStr.split("").reverse().join("");
 
-  //處理長短字串相加
-  for (let i = 0; i < shortStr.length; i++) {
-    let num =
-      parseInt(shortStr.charAt(i)) + parseInt(longStr.charAt(i)) + carry;
+  //處理長短字串與carry相加
+  while (i < longStr.length || carry != 0) {
+    if (i < shortLen) {
+      shortChar = parseInt(shortStr.charAt(i));
+    } else {
+      shortChar = 0;
+    }
+    if (i < longLen) {
+      longChar = parseInt(longStr.charAt(i));
+    } else {
+      longChar = 0;
+    }
+    let num = shortChar + longChar + carry;
     if (num > 1) {
       //大於一就進位
       carry = 1;
@@ -40,23 +54,7 @@ export default function addBinary(a: string, b: string): string {
       carry = 0;
     }
     sumString = num.toString() + sumString;
+    i++;
   }
-
-  //處理餘下的長字串進位
-  for (let j = shortStr.length; j < longStr.length; j++) {
-    let num = parseInt(longStr.charAt(j)) + carry;
-    if (num > 1) {
-      carry = 1;
-      num = num % 2;
-    } else {
-      carry = 0;
-    }
-    sumString = num.toString() + sumString;
-  }
-  //如果最後carry還有數字，就放到字串最前面
-  if (carry === 1) {
-    return "1" + sumString;
-  } else {
-    return sumString;
-  }
+  return sumString;
 }
