@@ -28,7 +28,7 @@ export default function addBinary(a: string, b: string): string {
   longStr = longStr.split("").reverse().join("");
   shortStr = shortStr.split("").reverse().join("");
 
-  //處理長短陣列相加
+  //處理長短字串相加
   for (let i = 0; i < shortStr.length; i++) {
     let num =
       parseInt(shortStr.charAt(i)) + parseInt(longStr.charAt(i)) + carry;
@@ -42,7 +42,7 @@ export default function addBinary(a: string, b: string): string {
     sumString = num.toString() + sumString;
   }
 
-  //處理餘下的長陣列進位
+  //處理餘下的長字串進位
   for (let j = shortStr.length; j < longStr.length; j++) {
     let num = parseInt(longStr.charAt(j)) + carry;
     if (num > 1) {
@@ -53,6 +53,7 @@ export default function addBinary(a: string, b: string): string {
     }
     sumString = num.toString() + sumString;
   }
+  //如果最後carry還有數字，就放到字串最前面
   if (carry === 1) {
     return "1" + sumString;
   } else {
