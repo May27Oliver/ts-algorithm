@@ -9,6 +9,7 @@ import lengthOfLastWord from "../LengthOfLastWord";
 import SearchInsertPosition from "../SearchInsertPosition";
 import PlustOne from "../PlusOne";
 import AddBinary from "../AddBinary";
+import Sqrt from "../Sqrt";
 
 describe("leetcode test", () => {
   test("twoSum test1", () => {
@@ -190,5 +191,22 @@ describe("leetcode test", () => {
     expect(AddBinary(a, b)).toBe(
       "110111101100010011000101110110100000011101000101011001000011011000001100011110011010010011000000000"
     );
+  });
+  test("Sqrt 1", () => {
+    /*
+      Input: x = 4
+      Output: 2
+    */
+    const x = 4;
+    expect(Sqrt(x)).toBe(2);
+  });
+
+  test("Sqrt 2", () => {
+    /*
+      Input: x = 4
+      Output: 2
+    */
+    const x = 8;
+    expect(Sqrt(x)).toBe(2);
   });
 });

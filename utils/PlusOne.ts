@@ -2,24 +2,18 @@
 Given two binary strings a and b, return their sum as a binary string.
 */
 export default function plusOne(digits: number[]): number[] {
-  let carry: number = 1,
-    i: number = digits.length - 1;
+  let i: number = digits.length;
 
-  while (i >= 0) {
-    carry = carry + digits[i];
-    if (carry > 9) {
-      digits[i] = 0;
-      carry = 1;
-    } else {
-      digits[i] = carry;
-      carry = 0;
-    }
+  while (i > 0) {
     i--;
+    if (digits[i] === 9) {
+      digits[i] = 0;
+    } else {
+      digits[i] += 1;
+      return digits;
+    }
   }
-  if (carry === 1) {
-    digits = [1, ...digits];
-  }
-  return digits;
+  return [1].concat(digits);
 }
 
 // export default function plusOne(digits: number[]): number[] {
