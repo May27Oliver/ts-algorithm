@@ -10,6 +10,7 @@ import SearchInsertPosition from "../SearchInsertPosition";
 import PlustOne from "../PlusOne";
 import AddBinary from "../AddBinary";
 import Sqrt from "../Sqrt";
+import climbStair from "../70ClimbingStairs";
 
 describe("leetcode test", () => {
   test("twoSum test1", () => {
@@ -192,6 +193,7 @@ describe("leetcode test", () => {
       "110111101100010011000101110110100000011101000101011001000011011000001100011110011010010011000000000"
     );
   });
+
   test("Sqrt 1", () => {
     /*
       Input: x = 4
@@ -208,5 +210,24 @@ describe("leetcode test", () => {
     */
     const x = 8;
     expect(Sqrt(x)).toBe(2);
+  });
+
+  //70 climbing stair
+  test("climbing stair 1", () => {
+    /*
+      Input: n = 2
+      Output: 2
+    */
+    const n = 2;
+    expect(climbStair(n)).toBe(2);
+  });
+
+  it("climbing stair 2", () => {
+    /*
+      Input: n = 3
+      Output: 3
+    */
+    const n = 3;
+    expect(climbStair(n)).toBe(3);
   });
 });
