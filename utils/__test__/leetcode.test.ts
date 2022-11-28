@@ -11,7 +11,8 @@ import PlustOne from "../PlusOne";
 import AddBinary from "../AddBinary";
 import Sqrt from "../Sqrt";
 import climbStair from "../70ClimbingStairs";
-
+import inorderTraversal from "../94BinaryTreeInorderTraversal";
+import { TreeNode } from "../../data_structure/tree";
 describe("leetcode test", () => {
   test("twoSum test1", () => {
     const testCase: number[] = [2, 7, 11, 15];
@@ -229,5 +230,13 @@ describe("leetcode test", () => {
     */
     const n = 3;
     expect(climbStair(n)).toBe(3);
+  });
+
+  //leetcode 94
+  it("BinarySearch Inorder", () => {
+    const node = new TreeNode(3);
+    const right = new TreeNode(2, node);
+    const root = new TreeNode(1, null, right);
+    expect(inorderTraversal(root)).toEqual([1, 3, 2]);
   });
 });

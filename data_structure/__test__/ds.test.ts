@@ -1,4 +1,5 @@
 import linkedList from "../linkedList";
+import { BinarySearchTree, TreeNode } from "../tree";
 
 describe("data structure testing", () => {
   const list = new linkedList();
