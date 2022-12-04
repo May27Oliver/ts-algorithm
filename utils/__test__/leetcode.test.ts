@@ -13,6 +13,8 @@ import Sqrt from "../Sqrt";
 import climbStair from "../70ClimbingStairs";
 import inorderTraversal from "../94BinaryTreeInorderTraversal";
 import { TreeNode } from "../../data_structure/tree";
+import isSameTree from "../100SamTree";
+
 describe("leetcode test", () => {
   test("twoSum test1", () => {
     const testCase: number[] = [2, 7, 11, 15];
@@ -232,11 +234,48 @@ describe("leetcode test", () => {
     expect(climbStair(n)).toBe(3);
   });
 
-  //leetcode 94
+  // leetcode 94
   it("BinarySearch Inorder", () => {
     const node = new TreeNode(3);
     const right = new TreeNode(2, node);
     const root = new TreeNode(1, null, right);
     expect(inorderTraversal(root)).toEqual([1, 3, 2]);
+  });
+
+  /*
+    leetcode 100
+    */
+  it(" Same Tree 1", () => {
+    const pLeft = new TreeNode(2);
+    const pRight = new TreeNode(3);
+    const pRoot = new TreeNode(1, pLeft, pRight);
+
+    const qLeft = new TreeNode(2);
+    const qRight = new TreeNode(3);
+    const qRoot = new TreeNode(1, qLeft, qRight);
+
+    expect(isSameTree(pRoot, qRoot)).toBe(true);
+  });
+
+  it(" Same Tree 2", () => {
+    const pLeft = new TreeNode(2);
+    const pRoot = new TreeNode(1, pLeft);
+
+    const qRight = new TreeNode(2);
+    const qRoot = new TreeNode(1, null, qRight);
+
+    expect(isSameTree(pRoot, qRoot)).toBe(false);
+  });
+
+  it(" Same Tree 3", () => {
+    const pLeft = new TreeNode(2);
+    const pRight = new TreeNode(1);
+    const pRoot = new TreeNode(1, pLeft, pRight);
+
+    const qLeft = new TreeNode(1);
+    const qRight = new TreeNode(2);
+    const qRoot = new TreeNode(1, qLeft, qRight);
+
+    expect(isSameTree(pRoot, qRoot)).toBe(false);
   });
 });

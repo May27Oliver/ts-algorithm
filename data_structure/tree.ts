@@ -33,6 +33,7 @@ export class TreeNode {
     this.right = right === undefined ? null : right;
   }
 }
+
 export class BinarySearchTree {
   root: TreeNode | null;
   nodes: number[] = [];
