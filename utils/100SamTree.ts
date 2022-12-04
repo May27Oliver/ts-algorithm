@@ -20,9 +20,9 @@ export default function isSameTree(
       return false;
     }
   }
-  return [
-    isSameTree(p.left, q.left),
-    p.val === q.val,
-    isSameTree(p.right, q.right),
-  ].every(Boolean);
+  return (
+    isSameTree(p.left, q.left) &&
+    p.val === q.val &&
+    isSameTree(p.right, q.right)
+  );
 }
