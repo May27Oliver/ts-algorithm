@@ -73,6 +73,16 @@ export class BinarySearchTree {
     this.nodes = [...this.nodes, node.val];
     this.inorderTraversal(node.right);
   }
+  //旋轉樹
+  revertTree(node: TreeNode | null): TreeNode | null {
+    if (!node || (node.left === null && node.right === null)) {
+      return node;
+    }
+    let temp = this.revertTree(node.left);
+    node.left = this.revertTree(node.right);
+    node.right = temp;
+    return node;
+  }
 }
 
 const BSTree = new BinarySearchTree();

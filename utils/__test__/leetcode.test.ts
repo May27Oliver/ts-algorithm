@@ -14,6 +14,8 @@ import climbStair from "../70ClimbingStairs";
 import inorderTraversal from "../94BinaryTreeInorderTraversal";
 import { TreeNode } from "../../data_structure/tree";
 import isSameTree from "../100SamTree";
+import symmetricTree from "../101SymmetricTree";
+import { rootCertificates } from "tls";
 
 describe("leetcode test", () => {
   test("twoSum test1", () => {
@@ -244,7 +246,7 @@ describe("leetcode test", () => {
 
   /*
     leetcode 100
-    */
+  */
   it(" Same Tree 1", () => {
     const pLeft = new TreeNode(2);
     const pRight = new TreeNode(3);
@@ -277,5 +279,46 @@ describe("leetcode test", () => {
     const qRoot = new TreeNode(1, qLeft, qRight);
 
     expect(isSameTree(pRoot, qRoot)).toBe(false);
+  });
+  /*
+    leetcode 101
+  */
+  it("Symmetric tree 1", () => {
+    const arr = [1, 2, 2, 3, 4, 4, 3];
+    const root = new TreeNode(arr[0]);
+    let currentNode = root;
+    root.left = new TreeNode(arr[1]);
+    root.right = new TreeNode(arr[2]);
+    currentNode = root.left;
+    currentNode.left = new TreeNode(arr[3]);
+    currentNode.right = new TreeNode(arr[4]);
+    currentNode = root.right;
+    currentNode.left = new TreeNode(arr[5]);
+    currentNode.right = new TreeNode(arr[6]);
+    console.log("symmetric 1 test");
+    expect(symmetricTree(root)).toBe(true);
+  });
+  it("Symmetric tree 2", () => {
+    const arr = [1, 2, 2, null, 3, null, 3];
+    const root = new TreeNode(1);
+    let currentNode = root;
+    root.left = new TreeNode(2);
+    root.right = new TreeNode(2);
+    currentNode = root.left;
+    currentNode.left = null;
+    currentNode.right = new TreeNode(3);
+    currentNode = root.right;
+    currentNode.left = null;
+    currentNode.right = new TreeNode(3);
+    console.log("symmetric 2 test");
+    expect(symmetricTree(root)).toBe(false);
+  });
+
+  it("Symmetric tree 3", () => {
+    const arr = [1, 0];
+    const root = new TreeNode(1);
+    root.left = new TreeNode(0);
+    console.log("the left", root.left);
+    expect(symmetricTree(root)).toBe(false);
   });
 });
