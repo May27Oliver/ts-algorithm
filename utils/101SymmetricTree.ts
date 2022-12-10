@@ -9,7 +9,7 @@ export default function isSymmetric(root: TreeNode | null): boolean {
     left: TreeNode | null,
     right: TreeNode | null
   ): boolean => {
-    if (left === null || right === null) {
+    if (!left || !right) {
       return left === right;
     }
     if (left.val !== right.val) {
