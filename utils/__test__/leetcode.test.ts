@@ -16,7 +16,7 @@ import { TreeNode } from "../../data_structure/tree";
 import isSameTree from "../100SamTree";
 import symmetricTree from "../101SymmetricTree";
 import arrayBuildTreeByLevelTraveral from "../arrayBuildTree";
-
+import MaximumDepthOfBinaryTree from "../104MaximumDepthOfBinaryTree";
 describe("leetcode test", () => {
   test("twoSum test1", () => {
     const testCase: number[] = [2, 7, 11, 15];
@@ -302,8 +302,14 @@ describe("leetcode test", () => {
   });
 
   // leetcode 104 Max Tree Depth
-  // it("Maximum Depth of Binary Tree 1", () => {
-  //   const root = [3, 9, 20, null, null, 15, 7];
-  //   expect().toBe(3);
-  // });
+  it("Maximum Depth of Binary Tree 1", () => {
+    const arr = [3, 9, 20, null, null, 15, 7];
+    const root = arrayBuildTreeByLevelTraveral(arr);
+    expect(MaximumDepthOfBinaryTree(root)).toBe(3);
+  });
+  it("Maximum Depth of Binary Tree 2", () => {
+    const arr = [1, null, 2];
+    const root = arrayBuildTreeByLevelTraveral(arr);
+    expect(MaximumDepthOfBinaryTree(root)).toBe(2);
+  });
 });
