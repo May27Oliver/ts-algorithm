@@ -17,6 +17,11 @@ import isSameTree from "../100SamTree";
 import symmetricTree from "../101SymmetricTree";
 import arrayBuildTreeByLevelTraveral from "../arrayBuildTree";
 import MaximumDepthOfBinaryTree from "../104MaximumDepthOfBinaryTree";
+import sortedArrayToBST, {
+  DFSforSortedArray108,
+} from "../108ConvertSortedArraytoBinarySearchTree";
+import isBalanced from "../110BalancedTree";
+
 describe("leetcode test", () => {
   test("twoSum test1", () => {
     const testCase: number[] = [2, 7, 11, 15];
@@ -311,5 +316,28 @@ describe("leetcode test", () => {
     const arr = [1, null, 2];
     const root = arrayBuildTreeByLevelTraveral(arr);
     expect(MaximumDepthOfBinaryTree(root)).toBe(2);
+  });
+
+  it("Convert Sorted Array To Binary Search Tree 1", () => {
+    expect([]).toEqual([]);
+  });
+
+  it("Convert Sorted Array To Binary Search Tree 2", () => {
+    const root = sortedArrayToBST([-10, -3, 0, 5, 9]);
+    const DFS = new DFSforSortedArray108();
+    DFS.DFSforSortedArray(root);
+    // expect(DFS.arr).toEqual([0, -3, 9, -10, null, 5]);
+  });
+
+  it("101 balanceTree test 1", () => {
+    const arr = [3, 9, 20, null, null, 15, 7];
+    const root = arrayBuildTreeByLevelTraveral(arr);
+    expect(isBalanced(root)).toBe(true);
+  });
+
+  it("101 balanceTree test 2", () => {
+    const arr = [1, 2, 2, 3, 3, null, null, 4, 4];
+    const root = arrayBuildTreeByLevelTraveral(arr);
+    expect(isBalanced(root)).toBe(false);
   });
 });
