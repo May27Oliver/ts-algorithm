@@ -21,6 +21,7 @@ import sortedArrayToBST, {
   DFSforSortedArray108,
 } from "../108ConvertSortedArraytoBinarySearchTree";
 import isBalanced from "../110BalancedTree";
+import letterCombinations from "../17LetterCombinationsOfAPhoneNumber";
 
 describe("leetcode test", () => {
   test("twoSum test1", () => {
@@ -196,7 +197,7 @@ describe("leetcode test", () => {
 
   test("Add Binary 3", () => {
     const a =
-        "10100000100100110110010000010101111011011001101110111111111101000000101111001110001111100001101",
+      "10100000100100110110010000010101111011011001101110111111111101000000101111001110001111100001101",
       b =
         "110101001011101110001111100110001010100001101011101010000011011011001011101111001100000011011110011";
     expect(AddBinary(a, b)).toBe(
@@ -339,5 +340,13 @@ describe("leetcode test", () => {
     const arr = [1, 2, 2, 3, 3, null, null, 4, 4];
     const root = arrayBuildTreeByLevelTraveral(arr);
     expect(isBalanced(root)).toBe(false);
+  });
+
+  /* leetcode 17 */
+  it("17. Letter Combinations of a Phone Number", () => {
+    const digits = "23";
+    const output = letterCombinations(digits);
+    console.log(output)
+    expect(letterCombinations(digits)).toEqual(["ad","ae","af","bd","be","bf","cd","ce","cf"])
   });
 });
